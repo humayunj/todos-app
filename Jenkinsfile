@@ -15,7 +15,7 @@ pipeline {
         stage("Run App") {
             steps {
                 script {
-                    sh "pm2 stop todos-app"
+                    sh "pm2 stop todos-app 2> /dev/null"
                     sh 'pm2 start "yarn start" --name todos-app'
                     sleep 5
                 }
