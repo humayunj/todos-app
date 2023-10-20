@@ -15,7 +15,9 @@ pipeline {
         stage("Run App") {
             steps {
                 script {
-                    sh "pm2 delete todos-app || : && pm2 start 'yarn start' --name 'todos-app'"
+                    
+
+                    sh "BUILD_ID=dontKillMe pm2 delete todos-app || : && pm2 start 'yarn start' --name 'todos-app'"
                     sleep 5
                 }
             }
