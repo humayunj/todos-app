@@ -17,7 +17,7 @@ pipeline {
                 script {
                     
 
-                    sh "BUILD_ID=dontKillMe pm2 delete todos-app || : && pm2 start 'yarn start' --name 'todos-app'"
+                    sh "pm2 delete todos-app || : && pm2 start -i 1 'yarn start' --name 'todos-app'"
                     sleep 5
                 }
             }
